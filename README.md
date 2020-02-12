@@ -22,9 +22,9 @@ CUCM calls analyzer
 Выполняем SQL запросы для создания индексов
 
 ```sql
-CREATE INDEX index_dateTimeOrigination ON нужная_таблица(dateTimeOrigination);
-CREATE INDEX index_dateTimeDisconnect ON нужная_таблица(dateTimeDisconnect);
-CREATE INDEX index_dateTimeConnect ON нужная_таблица(dateTimeConnect);
+CREATE INDEX имя_индекса ON нужная_таблица(dateTimeOrigination);
+CREATE INDEX имя_индекса ON нужная_таблица(dateTimeDisconnect);
+CREATE INDEX имя_индекса ON нужная_таблица(dateTimeConnect);
 ```
 
 **Результат работы индексов (реальный пример)**
