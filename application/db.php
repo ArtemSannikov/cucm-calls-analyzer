@@ -9,9 +9,9 @@
 
 	# Данные для подключения
 	define('DB_SERVER', 'localhost');
-	define('DB_USER', 'cucm');
+	define('DB_USER', '');
 	define('DB_PASSWORD', '');
-	define('DB_NAME', 'cucm');
+	define('DB_NAME', '');
 
 	# С какой базой будем работать
 	define('CDR_TABLE', 'cdr');
