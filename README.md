@@ -5,7 +5,7 @@ CUCM calls analyzer
 
 ### Интерфейс
 
-![Интерфейс](https://user-images.githubusercontent.com/31792522/74318534-44585580-4d9f-11ea-8f83-714de2f72776.jpg)
+![Интерфейс](https://user-images.githubusercontent.com/31792522/74318714-900aff00-4d9f-11ea-8793-2f1f4dfa2ddd.jpg)
 
 ### Как использовать?
 
