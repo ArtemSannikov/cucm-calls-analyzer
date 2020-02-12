@@ -17,6 +17,8 @@ CUCM calls analyzer
 define('DB_USER', ''); // Пользователь БД
 define('DB_PASSWORD', ''); // Пароль БД
 define('DB_NAME', ''); // Имя БД
+
+define('CDR_TABLE', ''); // Таблица для работы
 ```
 
 ### Оптимизация базы данных
