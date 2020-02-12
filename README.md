@@ -23,9 +23,7 @@ CUCM calls analyzer
 
 ```sql
 -- Создание INDEX
-CREATE INDEX имя_индекса ON нужная_таблица(dateTimeOrigination);
-CREATE INDEX имя_индекса ON нужная_таблица(dateTimeDisconnect);
-CREATE INDEX имя_индекса ON нужная_таблица(dateTimeConnect);
+CREATE INDEX имя_индекса ON таблица(поле_для которого_нужно_создать_индекс);
 
 -- Удаление INDEX
 DROP INDEX имя_индекса ON таблица;
