@@ -209,20 +209,17 @@
 		# Статистика за текущий месяц
 		elseif(isset($_POST['current_month'])){
 
-			//Первый день текущего месяца, время 00:00 (преобразуем в UNIX формат)
-			$get_first_day = date("Y-m-01")."T00:00";
-				$prepare_first_day = new DateTime($get_first_day);
-					$first_day = $prepare_first_day->getTimestamp();
+			//Первый день текущего месяца, время 00:00
+			$first_day = date("Y-m-01")."T00:00";
 
-			//Текущий день, время 00:00 (преобразуем в UNIX формат)
-			$get_current_day = date("Y-m-d")."T00:00";
-				$prepare_current_day = new DateTime($get_current_day);
-					$current_day = $prepare_current_day->getTimestamp();
+			//Текущий день, время 00:00
+			$current_day = date("Y-m-d")."T00:00";
 
 			// Общая длительность телефонных звонков
 			$query_duration_calls = mysql_query('SELECT SUM(`duration`) 
 										  FROM `cdr` 
-										  WHERE `dateTimeOrigination` >=' . $first_day . ' AND `dateTimeDisconnect` <= ' . $current_day);
+										  WHERE `dateTimeOrigination` >= UNIX_TIMESTAMP("'.$first_day.'") 
+										  		AND `dateTimeDisconnect` <= UNIX_TIMESTAMP("'.$current_day.'")');
 
 				$duration_calls = mysql_result($query_duration_calls, 0); //Выводим данные из базы в том формате, в котором они находятся в базе данных
 
@@ -233,21 +230,26 @@
 			// Общее количество звонков
 			$query_count_calls = mysql_query('SELECT COUNT(`id`) 
 											  FROM `cdr` 
-											  WHERE `dateTimeOrigination` >=' . $first_day . ' AND `dateTimeDisconnect` <= ' . $current_day);
+											  WHERE `dateTimeOrigination` >= UNIX_TIMESTAMP("'.$first_day.'") 
+											  		AND `dateTimeDisconnect` <= UNIX_TIMESTAMP("'.$current_day.'")');
 					
 				$count_calls = mysql_result($query_count_calls, 0);
 
 			// Состоявшиеся звонки (ненулевые звонки)
 			$query_not_zero_calls = mysql_query('SELECT COUNT(`duration`) 
 												 FROM `cdr` 
-												 WHERE `duration` > 0 AND `dateTimeOrigination` >=' . $first_day . ' AND `dateTimeDisconnect` <= ' . $current_day);
+												 WHERE `duration` > 0 
+												 	   AND `dateTimeOrigination` >= UNIX_TIMESTAMP("'.$first_day.'") 
+												 	   AND `dateTimeDisconnect` <= UNIX_TIMESTAMP("'.$current_day.'")');
 					
 				$not_zero_calls = mysql_result($query_not_zero_calls, 0);
 
 			// Несостоявшиеся звонки (нулевые звонки)
 			$query_zero_calls = mysql_query('SELECT COUNT(`duration`) 
-									  FROM `cdr` 
-									  WHERE `duration` = 0 AND `dateTimeOrigination` >=' . $first_day . ' AND `dateTimeDisconnect` <= ' . $current_day);
+									 		 FROM `cdr` 
+									 		 WHERE `duration` = 0 AND 
+									 		 	   `dateTimeOrigination` >= UNIX_TIMESTAMP("'.$first_day.'") 
+									 		 	   AND `dateTimeDisconnect` <= UNIX_TIMESTAMP("'.$current_day.'")');
 					
 				$zero_calls = mysql_result($query_zero_calls, 0);
 				
@@ -262,20 +264,17 @@
 		# Статистика за предыдущий месяц
 		elseif(isset($_POST['previous_month'])){
 
-			//Первый день прошлого месяца, время 00:00 (преобразуем в UNIX формат)
-			$get_previous_month = date("Y-m-01", strtotime("-1 month"))."T00:00";
-				$prepare_previous_month = new DateTime($get_previous_month);
-					$previous_month = $prepare_previous_month->getTimestamp();
+			//Первый день прошлого месяца, время 00:00 
+			$previous_month = date("Y-m-01", strtotime("-1 month"))."T00:00";
 
-			//Первый день текущего месяца, время 00:00 (преобразуем в UNIX формат)
-			$get_current_month = date("Y-m-01")."T00:00";
-				$prepare_current_month = new DateTime($get_current_month);
-					$current_month = $prepare_current_month->getTimestamp();
+			//Первый день текущего месяца, время 00:00
+			$current_month = date("Y-m-01")."T00:00";
 
 			// Общая длительность телефонных звонков
 			$query_duration_calls = mysql_query('SELECT SUM(`duration`)
-									FROM `cdr` 
-									WHERE `dateTimeOrigination` >=' . $previous_month . ' AND `dateTimeDisconnect` <= ' . $current_month);
+												 FROM `cdr` 
+												 WHERE `dateTimeOrigination` >= UNIX_TIMESTAMP("'.$previous_month.'") 
+														AND `dateTimeDisconnect` <= UNIX_TIMESTAMP("'.$current_month.'")');
 
 				$duration_calls = mysql_result($query_duration_calls, 0);
 
@@ -285,22 +284,27 @@
 
 			// Общее количество звонков
 			$query_count_calls = mysql_query('SELECT COUNT(`id`)
-									FROM `cdr` 
-									WHERE `dateTimeOrigination` >=' . $previous_month . ' AND `dateTimeDisconnect` <= ' . $current_month);
+											  FROM `cdr` 
+											  WHERE `dateTimeOrigination` >= UNIX_TIMESTAMP("'.$previous_month.'") 
+											  		AND `dateTimeDisconnect` <= UNIX_TIMESTAMP("'.$current_month.'")');
 					
 				$count_calls = mysql_result($query_count_calls, 0);
 
 			 // Состоявшиеся звонки (ненулевые звонки)
 			$query_not_zero_calls = mysql_query('SELECT COUNT(`duration`) 
-										 FROM `cdr` 
-										 WHERE `duration` > 0 AND `dateTimeOrigination` >=' . $previous_month . ' AND `dateTimeDisconnect` <= ' . $current_month);
+												 FROM `cdr` 
+												 WHERE `duration` > 0 
+												 		AND `dateTimeOrigination` >= UNIX_TIMESTAMP("'.$previous_month.'") 
+												 		AND `dateTimeDisconnect` <= UNIX_TIMESTAMP("'.$current_month.'")');
 					
 				$not_zero_calls = mysql_result($query_not_zero_calls, 0);
 
 			// Несостоявшиеся звонки (нулевые звонки)
 			$query_zero_calls = mysql_query('SELECT COUNT(`duration`) 
-									  FROM `cdr` 
-									  WHERE `duration` = 0 AND `dateTimeOrigination` >=' . $previous_month . ' AND `dateTimeDisconnect` <= ' . $current_month);
+											 FROM `cdr` 
+											 WHERE `duration` = 0 
+											 	   AND `dateTimeOrigination` >= UNIX_TIMESTAMP("'.$previous_month.'") 
+											 	   AND `dateTimeDisconnect` <= UNIX_TIMESTAMP("'.$current_month.'")');
 					
 				$zero_calls = mysql_result($query_zero_calls, 0);
 				
@@ -315,27 +319,15 @@
 		# Неактивные номера (номера телефонов, с которых не совершались звонки 90 дней)
 		elseif(isset($_POST['inactive_numbers'])){
 
-			// Получаем текущую дату ГГГГ-ММ-ДД, вычитаем из неё 90 дней
-			$getDate = mysql_query('SELECT DATE_ADD(NOW(), INTERVAL -90 day)');
-				$get_dateResult = mysql_result($getDate, 0);
-			
-			// Переводим полученную дату в UNIX (EPOCH) формат
-			$prepare_unixDate = new DateTime($get_dateResult);
-				$convert_unixDate = $prepare_unixDate->getTimestamp();
-
 			// Выполняем запрос к базе данных
-
-			/*$mysql_query = 
-			"SELECT КТО_ЗВОНИЛ, MAX(ДАТА_ЗВОНКА)
-			FROM НАЗВАНИЕ_ТАБЛИЦЫ 
-			GROUP BY КТО_ЗВОНИЛ 
-			HAVING MAX(ДАТА_ЗВОНКА)< DATEADD(day, -90, GETDATE())";*/
-
 			$mysql_query = mysql_query("SELECT `id`, `origDeviceName`,`callingPartyNumber`, MAX(`dateTimeOrigination`) 
 										FROM `cdr` 
 										WHERE LENGTH(`callingPartyNumber`) = 5 
 										GROUP BY `callingPartyNumber` 
-										HAVING MAX(`dateTimeOrigination`) < ".$convert_unixDate." AND `origDeviceName` NOT LIKE 'CCX%' AND `origDeviceName` NOT LIKE '9%' AND `origDeviceName` NOT LIKE '8%'");
+										HAVING MAX(`dateTimeOrigination`) < UNIX_TIMESTAMP(DATE_ADD(NOW(), INTERVAL -90 day)) 
+											   AND `origDeviceName` NOT LIKE 'CCX%' 
+											   AND `origDeviceName` NOT LIKE '9%' 
+											   AND `origDeviceName` NOT LIKE '8%'");
 
 			echo '<h3>Неактивные номера</h3>
 				  <p>Выводятся все номера, чья активность была более чем 90 дней назад.</p>
@@ -343,13 +335,19 @@
 
 			echo '<table width="100%">
 					<tr>
+						<td class="head-cell"><strong>#</strong></td>
 						<td class="head-cell"><strong>ID rows</strong></td>
 						<td class="head-cell"><strong>callingPartyNumber</strong></td>
 						<td class="head-cell"><strong>origDeviceName</strong></td>
 				 	</tr>';
 
 			while($row = mysql_fetch_assoc($mysql_query)){
+
+					$count_device++;
+
 					echo '<tr>';
+
+							echo '<td>'.$count_device.'</td>';
 
 							echo '<td>'.$row['id'].'</td>';
 
@@ -371,7 +369,8 @@
 				 <p>Телефонная станция Cisco Unified Communications Manager является системой обработки вызовов на базе программного обеспечения.</p>
 				 <hr/>
 				 <p><strong>Важный момент</strong>:</p>
-				 <p>Кнопки <span class="depends_blue">В виде таблицы</span> - <span class="depends_blue">В виде текста</span> - <span class="depends_blue">Длительность разговоров</span> зависят от данных, которые введены в форму</p>
+				 <p>Кнопки <span class="depends_blue">В виде таблицы</span> - <span class="depends_blue">В виде текста</span> зависят от всех данных, которые введены в форму</p>
+				 <p>Кнопка <span class="depends_green">Длительность разговоров</span> зависит от введённой даты в поле "От" и "До"</p>
 				 <p>Кнопки <span class="depends_gray">Текущий месяц</span> - <span class="depends_gray">Предыдущий месяц</span> - <span class="depends_gray">Неактивные номера</span> не зависят от данных в форме</p>';
 		}
 

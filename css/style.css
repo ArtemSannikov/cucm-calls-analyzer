@@ -100,12 +100,15 @@ img {
 					color: #fff;
 					line-height: 1;
 				}
+					.left form .row input[type="submit"].green_submit {
+						background-color: #26A69A;
+					}
 					.left form .row input[type="submit"].gray_submit {
 						background-color: #e2e2e2;
 						color: #333;
-					}
+					}					
 					.left form .row input[type="submit"]:hover {
-						background-color: #00B16A;
+						background-color: #333;
 						color: #fff;
 						transition: 0.1s;
 					}
@@ -151,6 +154,13 @@ img {
 				background-color: #1E8BC3;
 				color: #fff;
 			}
+			.right p > span.depends_green {
+				display: inline-block;
+				border-radius: 3px;
+				padding: 6px 6px;
+				background-color: #26A69A;
+				color: #fff;
+			}
 			.right p > span.depends_gray {
 				display: inline-block;
 				border-radius: 3px;
@@ -179,10 +189,11 @@ img {
 						background: #e3e3ff;				
 					}
 			.right td {
-				color: #333;
-				line-height: 1;
 				padding: 8px 10px;
 				border: 1px solid #a9a9a9;
+				font-size: 14px;
+				color: #333;
+				line-height: 1;
 				text-align: center;
 			}
 				.right td.head-cell {

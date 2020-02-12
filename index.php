@@ -69,7 +69,7 @@
 			</div>
 
 			<div class="row">
-				<input type="submit" value="Длительность разговоров" name="duration_of_calls">
+				<input type="submit" value="Длительность разговоров" name="duration_of_calls" class="green_submit">
 			</div>
 
 			<hr>
