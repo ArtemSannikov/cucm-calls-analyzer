@@ -40,8 +40,7 @@ SELECT `callingPartyNumber`,
 	   `dateTimeDisconnect`,
 	   `duration` 
 FROM `cdr` 
-WHERE `dateTimeOrigination` >= 1577836800 
-	  AND `dateTimeDisconnect` <= 1580342400;
+WHERE `dateTimeOrigination` >= 1577836800 AND `dateTimeDisconnect` <= 1580342400;
 ```
 
 Выполняем SQL запрос (без индексов), время обработки: 24.8475 сек
