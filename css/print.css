@@ -1,0 +1,19 @@
+@media print {
+
+	.header,
+	#wrapper .sidebar,
+	#wrapper .content .kama_breadcrumbs,
+	#wrapper .content .video-article-column-2,
+	#wrapper .content #respond,
+	.footer {
+		display: none;
+	}
+
+	#wrapper > .content-page {
+		display: block;
+		width: 100%;
+		height: auto;
+		font-family: 'Open Sans', sans-serif;
+			letter-spacing: 0.2px;
+	}
+}

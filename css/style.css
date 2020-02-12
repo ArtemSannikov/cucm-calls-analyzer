@@ -1,0 +1,191 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&subset=cyrillic');
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: 'Open Sans', sans-serif;
+		letter-spacing: 0.2px;
+	background-color: #fff;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+	vertical-align: bottom;
+}
+
+/* MySQL notifications */
+.mysql-error {
+	width: 100%;
+	height: auto;
+	background-color: #e57373;
+	font-size: 14px;
+	color: #fff;
+	line-height: 1;
+	text-align: center;
+	box-sizing: border-box;
+	padding: 15px 15px;
+}
+
+#wrapper {
+	width: 96%;
+	height: auto;
+	margin: 2% 2%;
+	display: flex;
+		justify-content: space-between;
+		align-items: end;
+}
+
+	.left {
+		width: 20%;
+		height: auto;
+		background-color: #efefef;
+		padding: 30px 30px;
+		box-sizing: border-box;
+		border-radius: 10px;
+	}
+		.left form {
+			width: 100%;
+			height: auto;
+		}
+			.left form .row {
+				width: 100%;
+				height: auto;
+				margin: 0 0 20px 0;
+			}
+				.left form .row label {
+					display: block;
+					width: 100%;
+					height: auto;
+					font-size: 14px;
+					line-height: 1;
+					color: #333;
+					margin: 0 0 15px 0;
+				}
+					.left form .row label.bold {
+						font-weight: bold;
+					}
+				.left form .row input[type='text'],
+				.left form .row input[type='datetime-local'] {
+					width: 100%;
+					height: 36px;
+					border: 1px solid #dfdfdf;
+					border-radius: 3px;
+					outline: 0;
+					padding: 5px 5px;
+					box-sizing: border-box;
+					font-size: 14px;
+					color: #333;
+					line-height: 1;
+				}
+				.left form .row input[type="checkbox"] {
+					position: relative;
+					top: 1px;
+				}
+				.left form .row input[type="submit"] {
+					width: 100%;
+					height: 36px;
+					border: 0;
+					outline: 0;
+					border-radius: 3px;
+					padding: 0 10px;
+					box-sizing: border-box;
+					background-color: #1E8BC3;
+					transition: 0.1s;
+					cursor: pointer;
+					font-size: 14px;
+					color: #fff;
+					line-height: 1;
+				}
+					.left form .row input[type="submit"].gray_submit {
+						background-color: #e2e2e2;
+						color: #333;
+					}
+					.left form .row input[type="submit"]:hover {
+						background-color: #00B16A;
+						color: #fff;
+						transition: 0.1s;
+					}
+			.left form hr {
+				display: block;
+				width: 100%;
+				height: 1px;
+				border: 0;
+				background-color: #ccc;
+				margin: 0 0 20px 0;
+			}
+
+	.right {
+		width: 78%;
+		height: auto;
+		box-sizing: border-box;
+	}
+		.right h3 {
+			font-size: 18px;
+			color: #333;
+			line-height: 1;
+			font-weight: 600;
+			margin: 0 0 20px 0;
+		}
+		.right hr {
+			display: block;
+			width: 100%;
+			height: 1px;
+			border: 0;
+			background-color: #eee;
+			margin: 0 0 20px 0;
+		}
+		.right p {
+			font-size: 14px;
+			color: #333;
+			line-height: 1.5;
+			margin: 0 0 20px 0;
+		}
+			.right p > span.depends_blue {
+				display: inline-block;
+				border-radius: 3px;
+				padding: 6px 6px;
+				background-color: #1E8BC3;
+				color: #fff;
+			}
+			.right p > span.depends_gray {
+				display: inline-block;
+				border-radius: 3px;
+				padding: 6px 6px;
+				background-color: #e2e2e2;
+				color: #333;
+			}
+		.right table {
+			border-collapse: collapse;
+			border-spacing: 0;
+			border:1px solid #a9a9a9;
+		}
+			.right table tr {
+				background: #f6f6f6;
+			}
+				.right table tr:nth-child(even) {
+					background: #e9e9e9;
+				}
+					.right table tr:nth-child(even):hover {
+						background: #e3e3ff;
+					}
+				.right table tr:nth-child(odd) {
+					background: #f6f6f6;
+				}
+					.right table tr:nth-child(odd):hover {
+						background: #e3e3ff;				
+					}
+			.right td {
+				color: #333;
+				line-height: 1;
+				padding: 8px 10px;
+				border: 1px solid #a9a9a9;
+				text-align: center;
+			}
+				.right td.head-cell {
+					font-weight: bold;
+					background: #d0e0ff;
+				}
