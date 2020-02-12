@@ -18,7 +18,6 @@ CUCM calls analyzer
 * dateTimeOrigination (дата и время звонка, в формате EPOCH UTC)
 * dateTimeDisconnect (время завершения сеанса связи, разговора)
 * dateTimeConnect (время установления сеанса связи, разговора)
-* origDeviceName (имя целевого устройства вызывающего абонента)
 
 Выполняем SQL запросы для создания индексов
 
