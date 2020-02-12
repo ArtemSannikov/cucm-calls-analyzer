@@ -8,12 +8,12 @@
 	session_start();
 
 	# Данные для подключения
-	define('DB_SERVER', 'localhost');
-	define('DB_USER', '');
-	define('DB_PASSWORD', '');
-	define('DB_NAME', '');
+	define('DB_SERVER', 'localhost'); // Сервер
+	define('DB_USER', ''); // Пользователь БД
+	define('DB_PASSWORD', ''); // Пароль БД
+	define('DB_NAME', ''); // Имя БД
 
-	# С какой базой будем работать
+	# С какой таблицей будем работать
 	define('CDR_TABLE', 'cdr');
 
 	# Выполняем подключение
