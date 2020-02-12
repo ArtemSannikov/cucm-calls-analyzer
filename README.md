@@ -24,7 +24,6 @@ CUCM calls analyzer
 ```sql
 -- Создание INDEX
 CREATE INDEX имя_индекса ON таблица(поле_для которого_нужно_создать_индекс);
-
 -- Удаление INDEX
 DROP INDEX имя_индекса ON таблица;
 ```
