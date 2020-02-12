@@ -32,9 +32,16 @@ CREATE INDEX имя_индекса ON нужная_таблица(dateTimeConnec
 Для сравнения результата выполним простой SQL запрос к базе, до внедрния индексов и после
 
 ```sql
-SELECT `callingPartyNumber`,`originalCalledPartyNumber`,`finalCalledPartyNumber`,`dateTimeOrigination`,`dateTimeConnect`,`dateTimeDisconnect`,`duration` 
+SELECT `callingPartyNumber`,
+	   `originalCalledPartyNumber`,
+	   `finalCalledPartyNumber`,
+	   `dateTimeOrigination`,
+	   `dateTimeConnect`,
+	   `dateTimeDisconnect`,
+	   `duration` 
 FROM `cdr` 
-WHERE `dateTimeOrigination` >= 1577836800 AND `dateTimeDisconnect` <= 1580342400;
+WHERE `dateTimeOrigination` >= 1577836800 
+	  AND `dateTimeDisconnect` <= 1580342400;
 ```
 
 Выполняем SQL запрос (без индексов)
