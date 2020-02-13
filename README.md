@@ -24,7 +24,7 @@ define('DB_USER', ''); // Пользователь БД
 define('DB_PASSWORD', ''); // Пароль БД
 define('DB_NAME', ''); // Имя БД
 
-define('CDR_TABLE', ''); // Таблица для работы
+define('DB_TABLE', ''); // Таблица для работы
 ```
 
 ### Алгоритм работы
