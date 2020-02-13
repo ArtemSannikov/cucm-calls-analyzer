@@ -106,3 +106,9 @@ WHERE `dateTimeOrigination` >= 1577836800 AND `dateTimeDisconnect` <= 1580342400
 Раздел: Текущий месяц, Предыдущий месяц, Неактивные номера
 
 Теперь преобразование даты из формата ГГГГ-ММ-ДД ЧЧ:ММ в UNIX (EPOCH) выполняет внутренняя функция SQL - UNIX_TIMESTAMP(), а не функция на строне PHP.
+
+
+### Ссылки
+
+1. [Epoch & Unix Timestamp Conversion Tools](https://www.epochconverter.com/)
+2. [Call Detail Records Administration Guide for Cisco Unified Communications Manager](https://www.cisco.com/c/en/us/td/docs/voice_ip_comm/cucm/service/11_5_1/cdrdef/cucm_b_cucm-cdr-administration-guide-1151/cucm_b_cucm-cdr-administration-guide-1151_chapter_0101.html)
