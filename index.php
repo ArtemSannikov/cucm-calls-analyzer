@@ -4,8 +4,8 @@
 	require_once('application/db.php');
 	# Константы
 	require_once('application/define.php');
-	# Файл с функциями для обработки
-	require_once('application/function.php');
+	# Файл ядра
+	require_once('application/core.php');
 ?>
 
 <!DOCTYPE html>
@@ -42,22 +42,25 @@
 
 			<div class="row">
 				<label class="bold">Номер телефона:</label>
-				<input type="text" name="phone_in" value="" placeholder="Входящий" maxlength="12" style="margin: 0 0 15px 0;">
-				<input type="text" name="phone_out" value="" placeholder="Исходящий" maxlength="12">
+				<input type="text" name="phone_in" value="<?php phone_in(); ?>" placeholder="Входящий" maxlength="12" style="margin: 0 0 15px 0;">
+				<input type="text" name="phone_out" value="<?php phone_out(); ?>" placeholder="Исходящий" maxlength="12">
 			</div>
 
 			<div class="row">
-				<label><input type="checkbox" name="show_zero_calls">&nbsp;Несостоявшиеся звонки</label>
+				<label>
+					<input type="checkbox" name="show_zero_calls" <?php if(isset($_POST['show_zero_calls'])){echo 'checked';} ?> >
+					Несостоявшиеся звонки
+				</label>
 			</div>
 
 			<div class="row">
 				<label for="begintime_field" class="bold">От:</label>
-				<input type="datetime-local" name="begin_time" value="<?php begintime(); ?>" id="begintime_field">
+				<input type="datetime-local" name="begin_time" value="<?php begintime(); ?>" id="begintime_field" required>
 			</div>
 
 			<div class="row">
 				<label for="endtime_field" class="bold">До:</label>
-				<input type="datetime-local" name="end_time" value="<?php endtime(); ?>" id="endtime_field">
+				<input type="datetime-local" name="end_time" value="<?php endtime(); ?>" id="endtime_field" required>
 			</div>
 
 			<div class="row">
@@ -91,9 +94,7 @@
 	</div>
 
 	<div class="right">
-		
 		<?php get_data_calls(); ?>
-
 	</div>
 
 </div>

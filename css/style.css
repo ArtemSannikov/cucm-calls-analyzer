@@ -83,7 +83,7 @@ img {
 				}
 				.left form .row input[type="checkbox"] {
 					position: relative;
-					top: 1px;
+					top: 2px;
 				}
 				.left form .row input[type="submit"] {
 					width: 100%;

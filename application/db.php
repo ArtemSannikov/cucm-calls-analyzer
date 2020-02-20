@@ -8,13 +8,13 @@
 	session_start();
 
 	# Данные для подключения
-	define('DB_SERVER', 'localhost'); // Сервер
-	define('DB_USER', ''); // Пользователь БД
-	define('DB_PASSWORD', ''); // Пароль БД
-	define('DB_NAME', ''); // Имя БД
+	define('DB_SERVER', 'localhost');
+	define('DB_USER', '');
+	define('DB_PASSWORD', '');
+	define('DB_NAME', '');
 
 	# С какой таблицей будем работать
-	define('CDR_TABLE', '');
+	define('DB_TABLE', '');
 
 	# Выполняем подключение
 	$mysql_connection = mysql_connect(DB_SERVER, DB_USER, DB_PASSWORD);
