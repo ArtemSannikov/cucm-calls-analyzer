@@ -14,7 +14,7 @@
 	define('DB_NAME', '');
 
 	# С какой таблицей будем работать
-	define('DB_TABLE', 'cdr');
+	define('DB_TABLE', '');
 
 	# Выполняем подключение
 	$mysql_connection = mysql_connect(DB_SERVER, DB_USER, DB_PASSWORD);
