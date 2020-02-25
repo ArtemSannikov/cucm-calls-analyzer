@@ -46,7 +46,7 @@
 				#Выводим результаты запроса
 				echo '<h3>Статистика за предыдущий месяц</h3>
 					  <hr/>
-					  <p>Всего звонков: <strong>'.$count_calls.'</strong>, продолжительностью: <strong>'.$h.':'.$m.':'.$s.'</strong>.</p>
-				      <p>Состоявшиеся звонки: <strong>'.$not_zero_calls.'</strong>.</p>
-				      <p>Несостоявшиеся звонки: <strong>'.$zero_calls.'</strong>.</p>';
+					  <p>Всего звонков: <strong>'.$count_calls.'</strong>, продолжительностью: <strong>'.$h.':'.$m.':'.$s.'</strong></p>
+				      <p>Состоявшиеся звонки: <strong>'.$not_zero_calls.'</strong></p>
+				      <p>Несостоявшиеся звонки: <strong>'.$zero_calls.'</strong></p>';
 ?>
